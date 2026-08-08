@@ -1,0 +1,58 @@
+import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import Experience from './components/Experience';
+import Education from './components/Education';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import { useTranslation } from 'react-i18next';
+
+function App() {
+  return (
+    <div className="bg-[#0F1115] text-white font-['Inter',sans-serif] selection:bg-[#1E90FF]/30 selection:text-[#1E90FF]">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <div className="grid md:grid-cols-2 gap-0 border-t border-white/5">
+          <Education />
+          <Certifications />
+        </div>
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+const Certifications = () => {
+  const { t } = useTranslation();
+  return (
+    <section className="py-24 px-6 md:px-20 bg-[#151922] border-l border-white/5 rtl:border-l-0 rtl:border-r">
+      <h2 className="text-3xl font-bold mb-12 flex items-center gap-4 uppercase tracking-widest text-sm text-[#1E90FF]">
+        <span className="w-8 h-[1px] bg-[#1E90FF]"></span>
+        {t('certifications.title')}
+      </h2>
+      <div className="space-y-10">
+        <div className="relative pl-8 rtl:pl-0 rtl:pr-8 group">
+          <div className="absolute left-0 rtl:left-auto rtl:right-0 top-1.5 w-3 h-3 rounded-full border border-[#1E90FF] group-hover:bg-[#1E90FF] transition-all"></div>
+          <h3 className="text-2xl font-bold group-hover:text-[#1E90FF] transition-colors">{t('certifications.cma')}</h3>
+          <p className="text-gray-400 mt-1">{t('certifications.cma_desc')}</p>
+          <p className="text-sm text-[#1E90FF]/60 mt-2 uppercase tracking-tighter">{t('certifications.cma_sub')}</p>
+        </div>
+        <div className="relative pl-8 rtl:pl-0 rtl:pr-8 group">
+          <div className="absolute left-0 rtl:left-auto rtl:right-0 top-1.5 w-3 h-3 rounded-full border border-[#1E90FF] group-hover:bg-[#1E90FF] transition-all"></div>
+          <h3 className="text-2xl font-bold group-hover:text-[#1E90FF] transition-colors">{t('certifications.pfa')}</h3>
+          <p className="text-gray-400 mt-1">{t('certifications.pfa_desc')}</p>
+          <p className="text-sm text-[#1E90FF]/60 mt-2 uppercase tracking-tighter">{t('certifications.pfa_sub')}</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default App;
